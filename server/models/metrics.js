@@ -2,10 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const MetricSchema = new Schema({
-    campaign:{
+    campaignId:{
         type: Schema.Types.ObjectId
     },
-
+    campaignName:{
+        type: String,
+        required: true
+    },
     impression: {
         type: Number,
         required: true

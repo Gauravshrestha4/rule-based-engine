@@ -1,0 +1,10 @@
+{
+    "test" : {
+        "DB_URL":"mongodb://localhost:27017/test-engine-db" 
+    },
+
+    "development" : {
+        "DB_URL" : "mongodb://localhost:27017/engine-db",
+        "PORT" : 3000
+    }
+}
