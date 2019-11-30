@@ -1,0 +1,11 @@
+{
+    "test" : {
+        "DB_URL": "mongodb:localhost:27017/test_db",
+        "PORT": 3000
+    },
+
+    "development" : {
+        "DB_URL" : "mongodb:localhost:27017/dev_db",
+        "PORT" : 3000
+    }
+}
