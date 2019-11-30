@@ -27,6 +27,9 @@ const MetricSchema = new Schema({
     installs: {
         type: Number,
         required: true
+    },
+    datetime: {
+        type:Date
     }
 });
 

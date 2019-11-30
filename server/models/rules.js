@@ -1,44 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/**all these values are given by the user while creating a rule */
 const RulesSchema = new Schema({
-    userId : {
-        type: Schema.Types.ObjectId
-    },
+  email: {
+    type: String
+  },
 
-    ruleName:{
-        type: String,
-        required: true
-    },
+  ruleName: {
+    type: String,
+    required: true
+  },
 
-    attachedCampaign: {
-        camapaignId: {
-            type: [Schema.Types.ObjectId],
-            required: true
-        }
-    },
+  campaigns: [Schema.Types.ObjectId],
 
-    scheduleTime:{
-        type: Date,
-        required: true
-    },
+  scheduleTime: {
+    type: Date,
+    required: true
+  },
 
-    /**all these values are given by the user while creating a rule */
-    conditions:{
-        expectedImpressions: Number,
-        expectedClicks: Number,
-        expectedSpend: Number,
-        expectedInstalls: Number,
-        expectedeCPM:{
-            type: Number
-        },
-        expectedeCPI: {
-            type: Number
-        },
-        expectedeCPC: Number
-    }
+  conditions: {
+    metricValue: Number,
+    operator: String,
+    ruleMetric: String
+  },
+  status: {
+    type: Boolean,
+    default: true
+  }
 });
 
-const Rule = mongoose.model('Rule', RulesSchema);
+const Rule = mongoose.model("Rule", RulesSchema);
 
 module.exports = Rule;

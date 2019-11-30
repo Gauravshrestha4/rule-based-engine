@@ -6,6 +6,9 @@ const Schema = mongoose.Schema;
 const CampaignSchema = new Schema({
   campaignName: {
     type: String
+  },
+  rules: {
+    type: Schema.Types.ObjectId
   }
 });
 
