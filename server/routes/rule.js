@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Rule = require("../models/rules");
-const mongoose = require("mongoose");
 
 /**route to save new rule as posted by the user */
 router.post("/rule", (req, res) => {
@@ -13,23 +12,34 @@ router.post("/rule", (req, res) => {
     conditions,
     status
   } = req.body;
+  //   let newRule = new Rule({
+  //     email,
+  //     ruleName: ruleName,
+  //     attachedCampaign: [campaigns],
+  //     scheduleTime: scheduleTime,
+  //     status: status,
+  //     conditions: {
+  //       ruleMetric: conditions.metric,
+  //       operator: conditions.operator,
+  //       metricValue: conditions.metricValue
+  //     }
+  //   });
   let newRule = new Rule({
-    email,
-    ruleName: ruleName,
-    attachedCampaign: [campaigns],
-    scheduleTime: scheduleTime,
-    status: status,
+    email: "gaurav.shrestha04@gmail.com",
+    ruleName: "testRule",
+    campaigns: ["Swiggy", "Adidas"],
+    status: true,
+    scheduleTime: "15 Minutes",
     conditions: {
-      ruleMetric: conditions.metric,
-      operator: conditions.operator,
-      metricValue: conditions.metricValue
+      ruleMetric: "installs",
+      operator: "greater than",
+      metricValue: "100"
     }
   });
-
   newRule
     .save()
-    .then(response => {
-      if (!response) {
+    .then(res => {
+      if (!res) {
         res.status(400).send("Record Not saved");
       } else {
         res.status(200).send("Record Saved Successfully");

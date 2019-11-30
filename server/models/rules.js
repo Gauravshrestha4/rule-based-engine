@@ -12,17 +12,17 @@ const RulesSchema = new Schema({
     required: true
   },
 
-  campaigns: [Schema.Types.ObjectId],
+  campaigns: [String],
 
   scheduleTime: {
-    type: Date,
+    type: String,
     required: true
   },
 
   conditions: {
+    ruleMetric: String,
     metricValue: Number,
-    operator: String,
-    ruleMetric: String
+    operator: String
   },
   status: {
     type: Boolean,

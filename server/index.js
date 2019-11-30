@@ -6,9 +6,11 @@ require("./db/connection");
 const user = require("./routes/user");
 const rule = require("./routes/rule");
 require("./server-config/server-config");
-require("./server-config/server-config");
 
-const pushDataService = require("./services/push-metric-data");
+const {
+  pushDataService,
+  pushRuleData
+} = require("./services/push-metric-data");
 const RuleExecutor = require("./services/rule-executor");
 
 app.use(bodyParser.json());
@@ -29,10 +31,17 @@ cron.schedule("1 * * * * *", () => {
     .catch(error => {
       console.log(`${error}`);
     });
+  //   pushRuleData()
+  //     .then(() => {
+  //       console.log("Rule Data Saved Successfully ..!!");
+  //     })
+  //     .catch(error => {
+  //       console.log(`${error}`);
+  //     });
 });
 
-cron.schedule("*/15 * * * *", () => {
-  RuleExecutor("15 Minute");
+cron.schedule("*/1 * * * *", () => {
+  RuleExecutor("15 Minutes");
 });
 app.listen(process.env.PORT, (req, res) => {
   console.log(`Server is up and running on ${process.env.PORT}`);

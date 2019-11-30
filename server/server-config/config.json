@@ -1,10 +1,10 @@
 {
-    "test" : {
-        "DB_URL":"mongodb://localhost:27017/test-engine-db" 
+    "test": {
+        "DB_URL": "mongodb://localhost:27017/test-rule-engine"
     },
 
-    "development" : {
-        "DB_URL" : "mongodb://localhost:27017/engine-db",
-        "PORT" : 3000
+    "development": {
+        "DB_URL": "mongodb://localhost:27017/rule-engine",
+        "PORT": 3000
     }
 }

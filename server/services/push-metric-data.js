@@ -1,33 +1,32 @@
 const Metric = require("../models/metrics");
-
+const Rule = require("../models/rules");
 const campaign = ["Swiggy", "Netfix", "Bose", "Adidas", "Puma"];
 const pushDataService = () => {
   let metric = new Metric({
-    campaignName: campaign[Math.floor(Math.random() * campaign.length)],
-    impression: Math.floor(Math.random() * 100),
+    campaign: campaign[Math.floor(Math.random() * campaign.length)],
+    impressions: Math.floor(Math.random() * 100),
     clicks: Math.floor(Math.random() * 50),
     installs: Math.floor(Math.random() * 100),
-    spend: Math.floor(Math.random() * 1000),
+    spends: Math.floor(Math.random() * 1000),
     datetime: Date.now()
   });
 
-  return metric
-    .update()
-    .then(response => {
-      if (!response) {
-        return new Promise((resolve, reject) => {
-          reject();
-        });
-      }
-      return new Promise((resolve, reject) => {
-        resolve();
-      });
-    })
-    .catch(error => {
-      return new Promise((resolve, reject) => {
-        reject(new Error("Serve Error"));
-      });
-    });
+  return metric.save();
 };
 
-module.exports = pushDataService;
+const pushRuleData = () => {
+  let newRule = new Rule({
+    email: "gaurav.shrestha04@gmail.com",
+    ruleName: "testRule2",
+    campaigns: ["Netflix"],
+    scheduleTime: "15 Minutes",
+    status: true,
+    conditions: {
+      ruleMetric: "clicks",
+      operator: "greater than",
+      metricValue: 20
+    }
+  });
+  return newRule.save();
+};
+module.exports = { pushDataService, pushRuleData };
