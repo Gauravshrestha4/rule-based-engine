@@ -6,13 +6,12 @@ const mongoose = require('mongoose');
 router.post('/save-rule', (req, res) => {
 
     let userId = mongoose.Types.ObjectId(req.body.userId)
-    let campaignId = mongoose.Types.ObjectId(req.body.campaignId);
 
     let newRule = new Rule({
         userId: userId,
         ruleName: req.body.ruleName,
         attachedCampaign:{
-            campaignId: campaignId
+            campaignName: req.body.campaignName
         },
         scheduleTime: req.body.scheduleTime,
         conditions: {

@@ -12,8 +12,8 @@ const RulesSchema = new Schema({
     },
 
     attachedCampaign: {
-        camapaignId: {
-            type: [Schema.Types.ObjectId],
+        campaignName: {
+            type: String,
             required: true
         }
     },

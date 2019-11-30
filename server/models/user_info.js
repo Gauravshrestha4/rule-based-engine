@@ -15,6 +15,10 @@ const UserInfoSchema = new Schema({
     phone: {
         type: String,
         required: true
+    },
+
+    rule_id: {
+        type: mongoose.Schema.Types.ObjectId
     }
 })
 

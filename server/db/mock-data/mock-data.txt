@@ -1,0 +1,13 @@
+Swiggy  impression  5
+Swiggy  clicks  2
+Swiggy  installs    4
+Swigyy  spend   200
+Netflix installs    2
+Netflix spend   100
+Netflix clicks  5
+Netflix impression  20
+Bose    impression  100
+Bose    installs    3
+Bose    spend   300
+Bose    clicks  30
+Mivi
