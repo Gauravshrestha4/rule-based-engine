@@ -17,14 +17,14 @@ const pushDataService = () => {
 const pushRuleData = () => {
   let newRule = new Rule({
     email: "gaurav.shrestha04@gmail.com",
-    ruleName: "testRule2",
-    campaigns: ["Netflix"],
+    ruleName: "testRule3",
+    campaigns: ["Netflix,Swiggy,Bose", "Adidas"],
     scheduleTime: "15 Minutes",
     status: true,
     conditions: {
       ruleMetric: "clicks",
       operator: "greater than",
-      metricValue: 20
+      metricValue: 2
     }
   });
   return newRule.save();
