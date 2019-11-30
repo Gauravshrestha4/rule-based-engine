@@ -1,6 +1,6 @@
 const Metric = require("../models/metrics");
 const Rule = require("../models/rules");
-const campaign = ["Swiggy", "Netfix", "Bose", "Adidas", "Puma"];
+const campaign = ["Swiggy", "Netflix", "Bose", "Adidas", "Puma"];
 const pushDataService = () => {
   let metric = new Metric({
     campaign: campaign[Math.floor(Math.random() * campaign.length)],

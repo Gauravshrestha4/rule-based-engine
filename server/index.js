@@ -31,13 +31,14 @@ cron.schedule("1 * * * * *", () => {
     .catch(error => {
       console.log(`${error}`);
     });
-  //   pushRuleData()
-  //     .then(() => {
-  //       console.log("Rule Data Saved Successfully ..!!");
-  //     })
-  //     .catch(error => {
-  //       console.log(`${error}`);
-  //     });
+
+    // pushRuleData()
+    //   .then(() => {
+    //     console.log("Rule Data Saved Successfully ..!!");
+    //   })
+    //   .catch(error => {
+    //     console.log(`${error}`);
+    //   });
 });
 
 cron.schedule("*/1 * * * *", () => {
